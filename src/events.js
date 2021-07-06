@@ -7,7 +7,7 @@ function createRouter(db) {
 
   router.get('/hotel', function (req, res, next) {
     db.query(
-      'SELECT (id, name, address, city_id) FROM hotel ORDER BY id LIMIT 10 OFFSET ?', [10*(req.params.page || 0)], (error, results) => {
+      'SELECT id, name, address, city_id FROM hotel ORDER BY id LIMIT 10 OFFSET ?', [10*(req.params.page || 0)], (error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});
