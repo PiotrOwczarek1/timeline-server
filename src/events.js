@@ -4,7 +4,7 @@ function createRouter(db) {
   const router = express.Router();
 
 
-
+/*
   router.get('/hotel', function (req, res, next) {
     const owner = req.user.email;
     db.query(
@@ -18,7 +18,7 @@ function createRouter(db) {
       }
     );
   });
-
+*/
 
 
   router.post('/event', (req, res, next) => {
