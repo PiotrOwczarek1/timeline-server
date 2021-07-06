@@ -96,6 +96,23 @@ function createRouter(db) {
     );
   });
 
+  router.post('/hotel', (req, res, next) => {
+    
+    db.query(
+      'INSERT INTO hotel ( name, address, city_id) VALUES (?,?,?)',
+      [req.body.name, req.body.address, req.body.city_id],
+      (error) => {
+        if (error) {
+          console.error(error);
+          res.status(500).json({status: 'error'});
+        } else {
+          res.status(200).json({status: 'ok'});
+        }
+      }
+    );
+  });
+
+
   return router;
 }
 
