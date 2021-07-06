@@ -82,6 +82,20 @@ function createRouter(db) {
     );
   });
 
+  router.delete('/hotel/:id', function (req, res, next) {
+    const owner = req.user.email;
+    db.query(
+      'DELETE FROM hotel WHERE id=?', [req.params.id],
+      (error) => {
+        if (error) {
+          res.status(500).json({status: 'error'});
+        } else {
+          res.status(200).json({status: 'ok'});
+        }
+      }
+    );
+  });
+
   return router;
 }
 
