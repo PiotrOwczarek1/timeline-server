@@ -100,8 +100,7 @@ function createRouter(db) {
     
     db.query(
       'INSERT INTO hotel ( name, address, city_id) VALUES (?,?,?)',
-      ['a','b',324],
-     // [req.body.name, req.body.address, req.body.city_id],
+      [req.body.name, req.body.address, req.body.city_id],
       (error) => {
         if (error) {
           console.error(error);
