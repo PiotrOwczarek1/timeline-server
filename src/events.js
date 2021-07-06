@@ -4,11 +4,10 @@ function createRouter(db) {
   const router = express.Router();
 
 
-/*
+
   router.get('/hotel', function (req, res, next) {
-    const owner = req.user.email;
     db.query(
-      'SELECT * FROM hotel ORDER BY id LIMIT 10 OFFSET ?', [10*(req.params.page || 0)], (error, results) => {
+      'SELECT (id, name, address, city_id) FROM hotel ORDER BY id LIMIT 10 OFFSET ?', [10*(req.params.page || 0)], (error, results) => {
         if (error) {
           console.log(error);
           res.status(500).json({status: 'error'});
@@ -18,7 +17,7 @@ function createRouter(db) {
       }
     );
   });
-*/
+
 
 
   router.post('/event', (req, res, next) => {
